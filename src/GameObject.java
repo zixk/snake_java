@@ -16,12 +16,14 @@ abstract class GameObject {
     int size(){
         if(next != null) return next.size() + 1;
         return 1;
-
     }
 
-    
-
-
+    void append(GameObject obj){
+        if(next == null){
+            next = obj;
+            obj.prev = this;
+        } else next.append(obj);
+    }
 
     public int getxCoor() {
         return xCoor;
