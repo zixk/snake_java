@@ -8,14 +8,14 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener {
 
     public static final int WIDTH = 500, HEIGHT = 500;
     private boolean right = true, left = false, up = false, down = false;
-    private int xCoor = 10, yCoor = 10, size = 1;
+    private int xCoor = 10, yCoor = 10, size = 2;
     private int ticks = 0;
     private Thread thread;
     private boolean running;
     private SnakeHead head;
     private SnakeBody body;
+    private SnakeFood food;
     private Random r;
-    private Object GameObject;
 
     public Gamepanel() {
 
@@ -64,6 +64,21 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener {
             }
 
         }
+
+        if(food == null){
+            int xCoor = r.nextInt(49);
+            int yCoor = r.nextInt(49);
+
+            food = new SnakeFood(xCoor,yCoor,10,10, null);
+        }
+
+        if(xCoor == food.getxCoor() && yCoor == food.getyCoor()){
+            size++;
+            int xCoor = r.nextInt(49);
+            int yCoor = r.nextInt(49);
+
+            food = new SnakeFood(xCoor,yCoor,10,10, null);
+        }
     }
 
     public void paint(Graphics g){
@@ -84,6 +99,8 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener {
             snakePart.draw(g);
             snakePart = snakePart.next;
         }
+        food.draw(g);
+
     }
 
     @Override
