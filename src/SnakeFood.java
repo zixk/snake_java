@@ -2,8 +2,9 @@ import java.awt.*;
 
 public class SnakeFood extends GameObject {
 
-    SnakeFood(int xCoor, int yCoor, int height, int width) {
-        super(xCoor, yCoor, height, width);
+
+    SnakeFood(int xCoor, int yCoor, int height, int width, GameObject next) {
+        super(xCoor, yCoor, height, width, next);
     }
 
     @Override

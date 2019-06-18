@@ -2,9 +2,9 @@ import java.awt.*;
 
 public class SnakeHead extends GameObject {
 
-    GameObject next;
-    SnakeHead(int xCoor, int yCoor, int height, int width) {
-        super(xCoor, yCoor, height, width);
+
+    SnakeHead(int xCoor, int yCoor, int height, int width, GameObject next) {
+        super(xCoor, yCoor, height, width, next);
     }
 
     @Override
