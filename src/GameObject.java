@@ -25,6 +25,14 @@ abstract class GameObject {
         } else next.append(obj);
     }
 
+    void removeLast(){
+        if(next!= null){
+            next.removeLast();
+        }else{
+            prev.next = null;
+        }
+
+    }
     public int getxCoor() {
         return xCoor;
     }

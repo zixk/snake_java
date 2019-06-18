@@ -7,6 +7,8 @@ public class SnakeBody extends GameObject {
         super(xCoor, yCoor, height, width, next);
     }
 
+
+
     @Override
     public void draw(Graphics g) {
         g.setColor(Color.YELLOW);
