@@ -10,6 +10,6 @@ public class SnakeFood extends GameObject {
     @Override
     public void draw(Graphics g) {
         g.setColor(Color.RED);
-        g.fillRect(getxCoor()*getWidth(),getyCoor()*getHeight(), getWidth(), getHeight());
+        g.fillOval(getxCoor()*getWidth(),getyCoor()*getHeight(), getWidth(), getHeight());
     }
 }

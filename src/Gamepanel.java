@@ -8,7 +8,7 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener {
 
     public static final int WIDTH = 500, HEIGHT = 500;
     private boolean right = true, left = false, up = false, down = false;
-    private int xCoor = 10, yCoor = 10, size = 2;
+    private int xCoor = 10, yCoor = 10, size = 15;
     private int ticks = 0;
     private Thread thread;
     private boolean running;
@@ -79,6 +79,10 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener {
 
             food = new SnakeFood(xCoor,yCoor,10,10, null);
         }
+
+        if (head.wallCollision()) stop();
+        if (head.selfCollision(head.next)) stop();
+
     }
 
     public void paint(Graphics g){

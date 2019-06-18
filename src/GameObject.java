@@ -31,8 +31,29 @@ abstract class GameObject {
         }else{
             prev.next = null;
         }
-
     }
+
+    boolean selfCollision(GameObject obj){
+        if(obj == null) {
+            return false;
+        }else{
+            if(xCoor == obj.xCoor && yCoor == obj.yCoor){
+                System.out.println("Game Over");
+                return true;
+            }
+            return this.selfCollision(obj.next);
+        }
+    }
+
+
+    boolean wallCollision(){
+        if(xCoor < 0 || xCoor > 49 || yCoor < 0 || yCoor > 49){
+            System.out.println("Game Over");
+            return true;
+        }
+        return false;
+    }
+
     public int getxCoor() {
         return xCoor;
     }
@@ -47,14 +68,6 @@ abstract class GameObject {
 
     public int getWidth() {
         return width;
-    }
-
-    public void setxCoor(int xCoor) {
-        this.xCoor = xCoor;
-    }
-
-    public void setyCoor(int yCoor) {
-        this.yCoor = yCoor;
     }
 
     public abstract void draw(Graphics g);
