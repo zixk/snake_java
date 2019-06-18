@@ -6,9 +6,9 @@ import java.util.Random;
 
 public class Gamepanel extends JPanel implements Runnable, KeyListener {
 
-    public static final int WIDTH = 500, HEIGHT = 500;
+    public static final int WIDTH = 300, HEIGHT = 200;
     private boolean right = true, left = false, up = false, down = false;
-    private int xCoor = 10, yCoor = 10, size = 15;
+    private int xCoor = 10, yCoor = 10, size = 2;
     private int ticks = 0;
     private Thread thread;
     private boolean running;
@@ -66,16 +66,16 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener {
         }
 
         if(food == null){
-            int xCoor = r.nextInt(49);
-            int yCoor = r.nextInt(49);
+            int xCoor = r.nextInt(29);
+            int yCoor = r.nextInt(19);
 
             food = new SnakeFood(xCoor,yCoor,10,10, null);
         }
 
         if(xCoor == food.getxCoor() && yCoor == food.getyCoor()){
             size++;
-            int xCoor = r.nextInt(49);
-            int yCoor = r.nextInt(49);
+            int xCoor = r.nextInt(29);
+            int yCoor = r.nextInt(19);
 
             food = new SnakeFood(xCoor,yCoor,10,10, null);
         }

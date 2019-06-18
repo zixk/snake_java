@@ -47,7 +47,7 @@ abstract class GameObject {
 
 
     boolean wallCollision(){
-        if(xCoor < 0 || xCoor > 49 || yCoor < 0 || yCoor > 49){
+        if(xCoor < 0 || xCoor > 29 || yCoor < 0 || yCoor > 19){
             System.out.println("Game Over");
             return true;
         }
