@@ -70,6 +70,11 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener {
             int yCoor = r.nextInt(19);
 
             food = new SnakeFood(xCoor,yCoor,10,10, null);
+            while(food.selfCollision(head)){
+                xCoor = r.nextInt(29);
+                yCoor = r.nextInt(19);
+                food = new SnakeFood(xCoor,yCoor,10,10, null);
+            }
         }
 
         if(xCoor == food.getxCoor() && yCoor == food.getyCoor()){
@@ -78,6 +83,11 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener {
             int yCoor = r.nextInt(19);
 
             food = new SnakeFood(xCoor,yCoor,10,10, null);
+            while(food.selfCollision(head)) {
+                xCoor = r.nextInt(29);
+                yCoor = r.nextInt(19);
+                food = new SnakeFood(xCoor, yCoor, 10, 10, null);
+            }
         }
 
         if (head.wallCollision()) stop();
